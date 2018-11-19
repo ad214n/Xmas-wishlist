@@ -9,7 +9,7 @@ const childController = {
             })
     },
     create: (req, res) => {
-        // take req.params inputs and format for DB
+        // take req.params and req.body input inputs and format for DB
 
         // send formatted inputs to DB
 
@@ -24,7 +24,7 @@ const childController = {
             })
     },
     update: (req, res) => {
-        // get the req.params inputs and format for DB
+        // get the req.params and req.body input inputs and format for DB
 
         // update the child from the DB by sending the params in
 
