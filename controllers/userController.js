@@ -8,13 +8,26 @@ const userController = {
                 res.send(users)
             })
     },
-    create: (req, res) => {
-        // take req.params and req.body input and format for DB
+    
+// take req.params and req.body input and format for DB
+// send formatted inputs to DB
+// send res back
+create: (req, res) => {
+    var UserId = req.params.UserId
+    User.findById(userId)
+        .then((user) => {
+            console.log(user)
+            Idea.create(req.body)
+                .then((newUser) => {
+                    console.log(newUser)
+                    user.ideas.push(newUser)
+                    user.save()
+                    res.send(newUser)
+                })
+        })
+}
 
-        // send formatted inputs to DB
-
-        // send res back
-    },
+}
     // pulls back a single user
     retrieve: (req, res) => {
         var userId = req.params.userId
@@ -23,20 +36,28 @@ const userController = {
                 res.send(user)
             })
     },
-    update: (req, res) => {
-        // get the req.params and req.body input inputs and format for DB
 
-        // update the user from the DB by sending the params in
+// get the req.params and req.body input inputs and format for DB
+// update the user from the DB by sending the params in
+// send res back
+update: (req, res) => {
+    var userId = req.params.userId
+    User.findByIdAndUpdate(UserId, req.body, { new: true })
+        .then((updatedUser) => {
+            updatedUser.save()
+            res.send(updatedUser)
+        })
+},
 
-        // send res back
-    },
-    delete: (req, res) => {
-        // get the user ID from the req.params
-
-        // delete the user from the DB
-
-        // send res back
-    },
-}
-
+// get the user ID from the req.params
+// delete the user from the DB
+// send res back
+delete: (req, res) => {
+    var userId = req.params.userId
+    User.findByIdAndDelete(userId)
+        .then(() => {
+            res.send(200)
+        })
+},
+  
 module.exports = userController
