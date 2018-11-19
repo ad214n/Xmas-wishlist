@@ -9,12 +9,21 @@ const itemController = {
             })
     },
     create: (req, res) => {
-        // take req.params and req.body input inputs and format for DB
+        var itemId = req.params.itemId
+        Item.findById(itemId)
+            .then((item) => {
+                console.log(item)
+                Idea.create(req.body)
+                    .then((newItem) => {
+                        console.log(newItem)
+                        item.ideas.push(newItem)
+                        item.save()
+                        res.send(newItem)
+                    })
+            })
+    }
 
-        // send formatted inputs to DB
-
-        // send res back
-    },
+}
     // pulls back a single item
     retrieve: (req, res) => {
         var itemId = req.params.itemId
@@ -23,20 +32,29 @@ const itemController = {
                 res.send(item)
             })
     },
-    update: (req, res) => {
-        // get the req.params and req.body input inputs and format for DB
+    
+// get the req.params and req.body input inputs and format for DB
+// update the item from the DB by sending the params in
+// send res back
+update: (req, res) => {
+    var itemId = req.params.itemId
+    Item.findByIdAndUpdate(ItemId, req.body, { new: true })
+        .then((updatedItem) => {
+            updatedItem.save()
+            res.send(updatedItem)
+        })
+},
 
-        // update the item from the DB by sending the params in
-
-        // send res back
-    },
-    delete: (req, res) => {
-        // get the item ID from the req.params
-
-        // delete the item from the DB
-
-        // send res back
-    },
-}
+    
+// get the item ID from the req.params
+// delete the item from the DB
+// send res back
+delete: (req, res) => {
+    var itemId = req.params.itemId
+    Item.findByIdAndDelete(itemId)
+        .then(() => {
+            res.send(200)
+        })
+},
 
 module.exports = itemController
