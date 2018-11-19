@@ -1,23 +1,36 @@
 import React, { Component } from 'react';
-import UsersPage from './UsersPage'
+import { Link } from 'react-router-dom';
+import styled from 'styled-components'
+
+const NavBarStyles = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #457B9D;
+  height: 50px;
+  
+  a {
+    text-decoration: none;
+    padding-left: 10px;
+    color: white;
+    &:active {
+      color: red;
+    }
+  }
+`
 
 class NavBar extends Component {
   render() {
     return (
-      <div>
-        <h1>Hello From Nav Bar!</h1>
-        <UsersPage 
-            username={"Sean"}
-            age={23}
-        />
-        <br/>
-        <UsersPage
-            username={"test"}
-            age={25}
-        />
-      </div>
+      <NavBarStyles id="nav-container" className="some-class">
+        <Link to="/">Home</Link>
+        <Link to="/user">Users</Link>
+        <Link to="/user/create">Create New User</Link>
+        
+      </NavBarStyles>
     );
   }
 }
 
 export default NavBar;
+
