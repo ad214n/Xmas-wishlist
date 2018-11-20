@@ -4,12 +4,6 @@ const userController = require('../controllers/userController')
 const itemController = require('../controllers/itemController')
 const childController = require('../controllers/childController')
 
-router.get('/users', userController.index)
-router.post('/user/create', userController.create)
-router.get('/user/get/:id', userController.retrieve)
-router.post('/user/update/:id', userController.update)
-router.post('/user/delete/:id', userController.delete)
-
 router.get('/children', childController.index)
 router.post('/child/create', childController.create)
 router.get('/child/get/:id', childController.retrieve)

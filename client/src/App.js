@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ParentPage from './components/ParentPage';
 import SiteHeader from './components/SiteHeader';
 import NewUser from './components/NewUser';
+import NavBar from './components/NavBar';
 
 
 class App extends Component {
@@ -14,8 +15,9 @@ class App extends Component {
       <Router>
         <div>
           <SiteHeader />
+          <NavBar />
           <Switch>
-              <Route exact path="/" component={NewUser} />
+              <Route exact path="/user/create" component={NewUser} />
               <Route exact path="/parent" component={ParentPage} />
           </Switch>
         </div>

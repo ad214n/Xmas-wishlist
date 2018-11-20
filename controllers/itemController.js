@@ -21,9 +21,9 @@ const itemController = {
                         res.send(newItem)
                     })
             })
-    }
+    },
 
-}
+
     // pulls back a single item
     retrieve: (req, res) => {
         var itemId = req.params.itemId
@@ -55,6 +55,7 @@ delete: (req, res) => {
         .then(() => {
             res.send(200)
         })
-},
+}
+}
 
 module.exports = itemController
