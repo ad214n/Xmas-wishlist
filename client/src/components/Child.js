@@ -7,8 +7,9 @@ class Child extends Component {
 
         this.state = {
             name: props.name,
-            desctription: props.description,
+            email: props.email,
             age: props.age,
+            photo: props.photo,
             items: props.items
         }
     }
@@ -17,8 +18,12 @@ class Child extends Component {
         return (
         // This is the HTML (as JSX) for a Child
         <div>
-            <h3> This is a Child </h3>
-            <p> I will show my info</p>
+            <h3> My name is {this.state.name} </h3>
+            <ul>
+                <li>Email: {this.state.email} </li>
+                <li>Age: {this.state.age} </li>
+                <li> Photo: {this.state.photo} </li>
+            </ul>
         </div>
         );
     }

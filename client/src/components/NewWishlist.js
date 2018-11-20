@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class NewUser extends Component {
+class NewWishlist extends Component {
   sendGet() {
     axios.get('/api/children')
       .then(function (response) {
@@ -22,12 +22,12 @@ class NewUser extends Component {
             <input type="text" id="name" name="name" />
           </div>
           <div>
-            <label class='text' for="email">Email</label>
-            <input type="text" id="email" name="email" />
+            <label class='text' for="price">Price</label>
+            <input type="text" id="price" name="price" />
           </div>
           <div>
-            <label class='text' for="age">Age</label>
-            <input type="text" id="age" name="age" />
+            <label class='text' for="description">Description</label>
+            <input type="text" id="description" name="description" />
           </div>
           <div>
             <label class='text' for="photo">Photo URL</label>
@@ -41,4 +41,4 @@ class NewUser extends Component {
   }
 }
 
-export default NewUser;
+export default NewWishlist;

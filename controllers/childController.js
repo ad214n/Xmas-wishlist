@@ -4,9 +4,10 @@ const childController = {
     // pulls back all children
     index: (req, res) => {
         Child.find({})
+            .populate("items")
             .then((children) => {
-                res.send(children)
-            })
+                res.send(children);
+            });
     },
     create: (req, res) => {
         // take req.params and req.body input inputs and format for DB
@@ -14,7 +15,7 @@ const childController = {
         // send res back
         Child.create(req.body)
             .then((newChild) => {
-                res.send(newChild);
+                res.redirect("/user/create");
             });
     },
     // pulls back a single child

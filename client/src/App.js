@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ParentPage from './components/ParentPage';
+import OtherWishlists from './components/OtherWishlists';
 import SiteHeader from './components/SiteHeader';
 import NewUser from './components/NewUser';
 import NavBar from './components/NavBar';
+import NewWishlist from './components/NewWishlist';
 
 
 class App extends Component {
@@ -17,8 +18,9 @@ class App extends Component {
           <SiteHeader />
           <NavBar />
           <Switch>
-              <Route exact path="/user/create" component={NewUser} />
-              <Route exact path="/parent" component={ParentPage} />
+              <Route exact path="/" component={NewUser} />
+              <Route exact path="/all" component={OtherWishlists} />
+              <Route exact path="/user/create" component={NewWishlist} />
           </Switch>
         </div>
       </Router>
