@@ -8,21 +8,22 @@ class NewUser extends Component {
         <h3>New User Sign Up</h3>
       <Form action="/api/child/create" method="post">
       <FormGroup>
-        <Label for="exampleName">Name</Label>
-        <Input type="name" name="name" id="exampleName" placeholder="Name" />
+        <Label for="exampleName"></Label>
+        <Input type="name" name="name" id="exampleName" placeholder="User Name" />
       </FormGroup>
       <FormGroup>
-        <Label for="exampleEmail">Email</Label>
+        <Label for="exampleEmail"></Label>
         <Input type="email" name="email" id="exampleEmail" placeholder="E-Mail Address" />
       </FormGroup>
       <FormGroup>
-        <Label for="exampleEmail">Age</Label>
+        <Label for="exampleEmail"></Label>
         <Input type="age" name="age" id="exampleAge" placeholder="Age" />
       </FormGroup>
       <FormGroup>
-        <Label for="examplePhoto">Photo</Label>
+        <Label for="examplePhoto"></Label>
         <Input type="photo" name="photo" id="examplePhoto" placeholder="Image URL" />
       </FormGroup>
+      <input type="submit" value="Create Account" />
       </Form>
       </div>
     );
