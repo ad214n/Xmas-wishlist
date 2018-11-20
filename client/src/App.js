@@ -20,7 +20,7 @@ class App extends Component {
           <Switch>
               <Route exact path="/" component={NewUser} />
               <Route exact path="/all" component={OtherWishlists} />
-              <Route exact path="/user/create" component={NewWishlist} />
+              <Route path="/user/:id" component={NewWishlist} />
           </Switch>
         </div>
       </Router>

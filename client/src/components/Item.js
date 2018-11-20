@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Child extends Component {
+class Item extends Component {
 
     constructor (props) {
         super(props);
@@ -17,17 +17,15 @@ class Child extends Component {
   
     render() {
         return (
-        // This is the HTML (as JSX) for a Child
+        // This is the HTML (as JSX) for an Item
+        // Need:
+        //      Display props/state (the stuff from the model)
+        //      Have buttons that Edit and Delete (then call to the right route)
         <div>
-            <h3><a href={"/user/" + this.state.id}> My name is {this.state.name}</a></h3>
-            <ul>
-                <li>Email: {this.state.email} </li>
-                <li>Age: {this.state.age} </li>
-                <li> Photo: {this.state.photo} </li>
-            </ul>
+            <p>This is an item</p>
         </div>
         );
     }
 }
 
-export default Child;
+export default Item;

@@ -29,6 +29,7 @@ class OtherWishlists extends Component {
           console.log(each);
           return <Child 
                     key={i}
+                    id={each._id}
                     name={each.name}
                     email={each.email}
                     age={each.age}

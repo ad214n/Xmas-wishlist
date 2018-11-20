@@ -20,11 +20,12 @@ const childController = {
     },
     // pulls back a single child
     retrieve: (req, res) => {
-    var childId = req.params.childId
-    Child.findById(childId)
-        .then((child) => {
-            res.send(child);
-        });
+        var childId = req.params.id
+        Child.findById(childId)
+            .populate("items")
+            .then((child) => {
+                res.send(child);
+            });
     },
     update: (req, res) => {
         // get the req.params and req.body input inputs and format for DB
