@@ -7,7 +7,7 @@ Trello Board
 https://trello.com/b/17fbwtqv/workout-app
 
 Wireframe 
-https://www.figma.com/file/FJstHGRq48z4dY8fHEy4O7lG/Untitled?node-id=2%3A4
+https://www.figma.com/file/R5cXOBBxVC5outpB2LoB6e4p/Untitled?node-id=0%3A1
 
 Heroku Site
 https://damp-bastion-52159.herokuapp.com/
