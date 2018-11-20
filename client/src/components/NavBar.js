@@ -6,7 +6,7 @@ const NavBarStyles = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background: #457B9D;
+  background: rgb(5, 75, 32);
   height: 50px;
   
   a {
@@ -16,7 +16,7 @@ const NavBarStyles = styled.div`
     &:active {
       color: red;
     }
-  }
+  } 
 `
 
 class NavBar extends Component {

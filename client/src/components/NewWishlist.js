@@ -56,7 +56,7 @@ class NewWishlist extends Component {
                 <label className='text' htmlFor="photo">Photo URL</label>
                 <input type="text" id="photo" name="photo" />
             </div>
-            <input type="submit" value="Create Account" />
+            <input type="submit" value="Add Item" />
             </form>
 
             <p>{this.state.name}</p>
