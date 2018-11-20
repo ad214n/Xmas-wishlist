@@ -3,8 +3,9 @@ const Schema = mongoose.Schema
 
 const Child = new Schema({
     name: String,
-    desctription: String,
+    email: String,
     age: Number,
+    photo: String,
     items: [{
         type: Schema.Types.ObjectId,
         ref: "Item"
