@@ -4,7 +4,7 @@ ERD
 https://imgur.com/k1odDkp
 
 Trello Board 
-https://trello.com/b/17fbwtqv/workout-app
+https://trello.com/b/bYhiDoUS/xmas-wishlist-project-3
 
 Wireframe 
 https://www.figma.com/file/R5cXOBBxVC5outpB2LoB6e4p/Untitled?node-id=0%3A1
