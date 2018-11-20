@@ -10,18 +10,18 @@ class NewUser extends Component {
         <h3>New User Sign Up</h3>
         <form action="/gyms/new" method="post">
           <div>
-            <label class='text' for="name">Gym Name</label>
+            <label class='text' for="name">Name</label>
             <input type="text" id="name" name="gymName" />
           </div>
           <div>
-            <label class='text' for="city">City</label>
-            <input type="text" id="city" name="gymCity" />
+            <label class='text' for="age">Age</label>
+            <input type="text" id="age" name="age" />
           </div>
           <div>
-            <label class='text' for="state">State</label>
-            <input type="text" id="state" name="gymState" />
+            <label class='text' for="email">E-mail</label>
+            <input type="text" id="email" name="userEmail" />
           </div>
-          <input type="submit" value="Add Gym" />
+          <input type="submit" value="Create Account" />
         </form>
       </div>
     );
