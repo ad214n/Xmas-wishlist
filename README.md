@@ -23,3 +23,6 @@ List of Technologies Used:
 * Mongoose
 * React.js
 * Trello
+
+## Future Development
+I would like to add user authentication. There are many bugs that this project currently has such as the user only sees the updated item once they refresh the page, the ID of the user is visible on profile page, the photo option to upload url of an item is not functional and only shows the url, the user photo only shows up on profile page,and I want to add the option to edit users' profiles. Also, I really need to style the whole application. 
