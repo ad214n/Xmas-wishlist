@@ -19,7 +19,7 @@ class Child extends Component {
         return (
         // This is the HTML (as JSX) for a Child
         <div>
-            <h3><a href={"/user/" + this.state.id}> My name is {this.state.name}</a></h3>
+            <h3><a href={"/user/" + this.state.id}>{this.state.name}</a></h3>
             <ul>
                 <li>Email: {this.state.email} </li>
                 <li>Age: {this.state.age} </li>
