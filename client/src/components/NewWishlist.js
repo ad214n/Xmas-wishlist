@@ -54,9 +54,6 @@ class NewWishlist extends Component {
 
     render() {
         return (
-        // This is the HTML (as JSX) for the new user form
-        // convert this to create a new user
-        // action and inputs need to change
         <div>
             <p>{this.state.name}</p>
             <p>{this.state.email}</p>
