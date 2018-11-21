@@ -17,9 +17,9 @@ const itemController = {
                 Item.create(req.body)
                     .then((newItem) => {
                         console.log(newItem);
-                        child.ideas.push(newItem);
+                        child.items.push(newItem);
                         child.save();
-                        res.send(newItem);
+                        res.redirect(req.get('referer'));
                     });
             });
     },

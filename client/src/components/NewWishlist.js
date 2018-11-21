@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Item from './Item';
 
 
 class NewWishlist extends Component {
@@ -6,7 +7,12 @@ class NewWishlist extends Component {
         super(props);
 
         this.state = {
-            user: props.match.params.id
+            user: props.match.params.id,
+            name: "",
+            email: "",
+            age: "",
+            photo: "",
+            items: []
         }
     }
 
@@ -23,12 +29,26 @@ class NewWishlist extends Component {
                     email: data.email,
                     age: data.age,
                     photo: data.photo,
-                    items: data.items    
+                    items: data.items
                 });
             });
     }
 
-    componentWillMount() {
+    onDelete(id) {
+        console.log("entering onDelete for", id);
+        const currentList = this.state.items;
+        let newList = [];
+
+        currentList.forEach(element => {
+            if (element !== id) {
+                newList.push(element);
+            }
+        });
+
+        this.setState({ items: newList });
+    }
+
+    componentDidMount() {
         this.getUserInfo();
     }
 
@@ -38,8 +58,15 @@ class NewWishlist extends Component {
         // convert this to create a new user
         // action and inputs need to change
         <div>
-            <h3>New Wishlist</h3>
-            <form action="/api/child/create" method="post">
+            <p>{this.state.name}</p>
+            <p>{this.state.email}</p>
+            <p>{this.state.age}</p>
+            <img src={this.state.photo} alt={"userpic"}/>
+
+            <hr/>
+
+            <h3>Add Items to Wishlist</h3>
+            <form action={"/api/item/create/" + this.state.user} method="post">
             <div>
                 <label className='text' htmlFor="name">Name</label>
                 <input type="text" id="name" name="name" />
@@ -59,10 +86,21 @@ class NewWishlist extends Component {
             <input type="submit" value="Add Item" />
             </form>
 
-            <p>{this.state.name}</p>
-            <p>{this.state.email}</p>
-            <p>{this.state.age}</p>
-            <img src={this.state.photo} alt={"userpic"}/>
+            <hr/>
+
+            {
+                this.state.items.map((each, i) => {
+                    return <Item 
+                                key={i}
+                                id={each._id}
+                                name={each.name}
+                                price={each.price}
+                                description={each.description}
+                                photo={each.photo}
+                                onDelete={this.onDelete.bind(this)}
+                            />
+                })
+            }
         
         </div>
         );

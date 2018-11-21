@@ -9,12 +9,12 @@ class Item extends Component {
         this.state = {
             id: props.id,
             name: props.name,
-            email: props.email,
-            age: props.age,
-            photo: props.photo,
-            items: props.items
+            price: props.price,
+            description: props.description,
+            photo: props.photo
         }
     }
+
       handleUpdate = (ideaId) => {
         // Find the individual updated idea from this.state.ideas
         const ideaToUpdate = this.state.ideas.find(idea => {
@@ -26,31 +26,24 @@ class Item extends Component {
         })
         // console .log saved
       }
-      handleDelete = ideaId => {
-        // some unique value
-        axios.delete(`/api/ideas/${ideaId}`).then(() => {
-          //Remove the idea with ideaID from this.state.ideas
-          const newIdeas = [...this.state.ideas]
-          // Return only ideas that are NOT the id provided
-          const filtered = newIdeas.filter(idea => {
-            return idea._id !== ideaId // ! = =
-          })
-          // Take filtered data and set it to ideas
-          this.setState({ideas: filtered})
+
+    handleDelete = () => {
+    axios.post(`/api/item/delete/${this.state.id}`)
+        .then(() => {
+            console.log("deleting", this.state.id);
+            this.props.onDelete(this.state.id)
         })
-      }
+    }
+
     render() {
         return (
             <div>
-            <input type="submit" value="Create Account" />
-        {/* // This is the HTML (as JSX) for an Item
-        // Need:
-        //      Display props/state (the stuff from the model)
-        //      Have buttons that Edit and Delete (then call to the right route) */}
-        
-    
-            <p>This is an item</p>
-        </div>
+                <hr/>
+                <h3>{`${this.state.id} ${this.state.name} ${this.state.price} ${this.state.description} ${this.state.photo}`}</h3>
+                <button onClick={this.handleDelete}>Update</button>
+                <button onClick={this.handleDelete}>Delete</button>
+                <hr/>
+            </div>
         );
     }
 }
