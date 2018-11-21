@@ -24,8 +24,8 @@ class NavBar extends Component {
     return (
       <NavBarStyles id="nav-container" className="some-class">
         <Link to="/">Home</Link>
-        <Link to="/all">Others' Wishlists</Link>
-        <Link to="/user">Make A Wishlist!</Link>
+        <Link to="/all">Wishlists</Link>
+        
         
       </NavBarStyles>
     );
