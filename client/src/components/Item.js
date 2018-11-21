@@ -15,32 +15,33 @@ class Item extends Component {
         }
     }
 
-      handleUpdate = (ideaId) => {
-        // Find the individual updated idea from this.state.ideas
-        const ideaToUpdate = this.state.ideas.find(idea => {
-          return idea._id === ideaId
+    handleUpdate = () => {
+        axios.post(`/api/item/update/${this.state.id}`,
+        {
+            name: document.getElementById(this.state.id + "_name").value,
+            price: document.getElementById(this.state.id + "_price").value,
+            description: document.getElementById(this.state.id + "_desc").value,
+            photo: document.getElementById(this.state.id + "_photo").value,
         })
-        // axios post the endpoint with updated data
-        axios.patch(`/api/ideas/${ideaId}`, ideaToUpdate).then(() => {
-          console.log("Updated Idea")  
-        })
-        // console .log saved
-      }
+    }
 
     handleDelete = () => {
-    axios.post(`/api/item/delete/${this.state.id}`)
-        .then(() => {
-            console.log("deleting", this.state.id);
-            this.props.onDelete(this.state.id)
-        })
+        axios.post(`/api/item/delete/${this.state.id}`)
+            .then(() => {
+                console.log("deleting", this.state.id);
+                this.props.onDelete(this.state.id)
+            })
     }
 
     render() {
         return (
             <div>
                 <hr/>
-                <h3>{`${this.state.id} ${this.state.name} ${this.state.price} ${this.state.description} ${this.state.photo}`}</h3>
-                <button onClick={this.handleDelete}>Update</button>
+                <input type="text" id={this.state.id + "_name"} placeholder={this.state.name}></input>
+                <input type="text" id={this.state.id + "_price"} placeholder={this.state.price}></input>
+                <input type="text" id={this.state.id + "_desc"} placeholder={this.state.description}></input>
+                <input type="text" id={this.state.id + "_photo"} placeholder={this.state.photo}></input>
+                <button onClick={this.handleUpdate}>Update</button>
                 <button onClick={this.handleDelete}>Delete</button>
                 <hr/>
             </div>

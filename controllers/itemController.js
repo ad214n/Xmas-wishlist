@@ -35,6 +35,8 @@ const itemController = {
     // update the item from the DB by sending the params in
     // send res back
     update: (req, res) => {
+        console.log("itemId", req.params.id);
+        console.log("req.body", req.body);
         var itemId = req.params.id
         Item.findByIdAndUpdate(itemId, req.body, { new: true })
             .then((updatedItem) => {
